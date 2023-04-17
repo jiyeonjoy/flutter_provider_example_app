@@ -35,6 +35,7 @@ class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var itemNameStyle = Theme.of(context).textTheme.titleLarge;
+    /// CartModel 값이 바뀌면 다시 빌드됨..
     var cart = context.watch<CartModel>();
 
     return ListView.builder(
@@ -68,6 +69,7 @@ class _CartTotal extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            /// CartModel 값이 변경 되면 재빌드 됨.
             Consumer<CartModel>(
                 builder: (context, cart, child) =>
                     Text('\$${cart.totalPrice}', style: hugeStyle)),

@@ -41,7 +41,10 @@ class ShopperApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        /// CatalogModel 는 절대 변경 되지 않으 므로 간단한 Provider 로 구현 되어 있다.
         Provider(create: (context) => CatalogModel()),
+        /// 다른 ChangeNotifier 에 종속적인 Provider 인 경우 ChangeNotifierProxyProvider 사용!!
+        /// CartModel 이 CatalogModel 포함 하고 있음.
         ChangeNotifierProxyProvider<CatalogModel, CartModel>(
           create: (context) => CartModel(),
           update: (context, catalog, cart) {

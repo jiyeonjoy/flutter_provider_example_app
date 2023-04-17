@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CatalogModel {
+  /// 아 지금은 절대 바뀌지 않지만 서버에서 불러오는 경우 이렇게 쓰는 거라고! 아하!
   static List<String> itemNames = [
     'Code Smell',
     'Control Flow',
