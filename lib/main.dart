@@ -1,5 +1,6 @@
-import 'package:flutter_provider_example_app/counter_app.dart';
+import 'package:flutter_provider_example_app/shopper_app.dart';
 
 void main() {
-  executeCounterApp();
+  // executeCounterApp();
+  executeShopperApp();
 }
