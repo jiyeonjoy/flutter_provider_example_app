@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,12 +11,20 @@ void executeCounterApp() {
   );
 }
 
-class Counter with ChangeNotifier {
+/// Mix-in [DiagnosticableTreeMixin] to have access to [debugFillProperties] for the devtool
+class Counter with ChangeNotifier, DiagnosticableTreeMixin {
   int value = 0;
 
   void increment() {
     value += 1;
     notifyListeners();
+  }
+
+  /// Makes `Counter` readable inside the devtools by listing all of its properties
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(IntProperty('value', value));
   }
 }
 
