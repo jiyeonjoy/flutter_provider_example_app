@@ -6,7 +6,7 @@ void executeCounterApp() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => Counter(),
-      child: const MyApp(),
+      child: const CounterApp(),
     ),
   );
 }
@@ -29,8 +29,8 @@ class Counter with ChangeNotifier, DiagnosticableTreeMixin {
   }
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CounterApp extends StatelessWidget {
+  const CounterApp({super.key});
 
   @override
   Widget build(BuildContext context) {

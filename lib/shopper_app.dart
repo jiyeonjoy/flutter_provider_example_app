@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 void executeShopperApp() {
-  runApp(const MyApp());
+  runApp(const ShopperApp());
 }
 
 GoRouter router() {
@@ -34,8 +34,8 @@ GoRouter router() {
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ShopperApp extends StatelessWidget {
+  const ShopperApp({super.key});
 
   @override
   Widget build(BuildContext context) {
