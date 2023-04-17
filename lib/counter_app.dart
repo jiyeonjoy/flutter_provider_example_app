@@ -17,6 +17,7 @@ class Counter with ChangeNotifier, DiagnosticableTreeMixin {
 
   void increment() {
     value += 1;
+    /// notifyListeners 를 써줘야지 Counter 값이 바뀔 때 Consumer에서 확인 가능 하다.
     notifyListeners();
   }
 
@@ -58,6 +59,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('You have pushed the button this many times:'),
+            /// Counter 값이 바뀌면 다시 유아이가 그려진다. 최소한으로 빌드 되도록 구현 해야 한다.
             Consumer<Counter>(
               builder: (context, counter, child) => Text(
                 '${counter.value}',
@@ -69,6 +71,9 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          /// context.read<Counter>() -> Provider.of<T>(this, listen: false);
+          /// listen -> false 이므로 Counter 에 접근 가능 하지만 Counter 값이 바뀐 다고 해서 다시 빌드 되지 않는다.
+          /// context.watch<Counter>(); 를 쓰면 Counter 값 변할 때 다시 빌드 된다.
           var counter = context.read<Counter>();
           counter.increment();
         },
